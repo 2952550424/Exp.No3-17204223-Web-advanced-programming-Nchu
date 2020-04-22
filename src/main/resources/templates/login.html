@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.com">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="alert alert-info text-center"><h1>17204223_徐权</h1></div>
+	<div class="container-fluid col-md-4">
+		<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+			<h1>Please Login First...</h1>
+			<table>
+				<tr>
+					<td>Account:</td>
+					<td><input type="text" th:field="*{account}" class="form-control" /></td>
+					<td th:if="${#fields.hasErrors('account')}" th:errors="*{account}">Account Error</td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" th:field="*{password}" class="form-control" /></td>
+					<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+				</tr>
+			</table>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+		</form>
+		<div class="mt-1">
+			<a class="btn btn-lg btn-primary btn-block" href="/register">Go TO Register</a>
+		</div>
+	</div>
+</body>
+</html>
